@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>用户管理</title>
+		<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta name="robots" content="noindex,nofollow">
+		<link href="__ROOT__/statics/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		
+	</head>
+	
+	<body>
+	<nav class="navbar navbar-default" role="navigation">
+   <div class="navbar-header">
+      <a class="navbar-brand" >后台管理</a>
+   </div>
+   <div>
+      <ul class="nav navbar-nav">
+         <li class="active"><a >用户管理</a></li>
+      </ul>
+       <div>
+      <a href='__APP__/Index/loginout'><button type="button" class="btn btn-default navbar-btn" style="float:right">
+         注销退出    
+      </button></a>
+   		</div>
+   </div>
+</nav>
+		
+<div >
+   <div  >
+     <table class="table table-hover" >
+      <thead>
+        <tr>
+          <th style="display:none">id</th>
+          <th>&nbsp;姓&nbsp;名&nbsp;</th>
+          <th>学号</th>
+          <th>性&nbsp;别</th>
+          <th>&nbsp;部&nbsp;门&nbsp;选&nbsp;择&nbsp;</th>
+          <th>手机号</th>
+          <th>&nbsp;&nbsp;QQ号</th>
+          <th>&nbsp;&nbsp;邮&nbsp;箱</th>
+          <th>生&nbsp;日</th>
+          <th>宿&nbsp;舍</th>
+          <th>学&nbsp;&nbsp;院</th>
+          <th>专&nbsp;&nbsp;业</th>
+          <th>特长或获奖</th>
+          <th>主要经历</th>
+          <th>应聘理由</th>
+        </tr>
+      </thead>
+      <tbody>
+      	<volist name="data" id="vo">
+
+
+ 
+        <tr id="tr-{$vo.id}">
+          <th scope="row" style="display:none">{$vo.id}</th>
+          <td>{$vo.name}</td>
+          <td>{$vo.xh}</td>
+          <td>{$vo.sex}</td>
+          <td>{$vo.department1}</td>
+          <td>{$vo.phone}</td>
+          <td>{$vo.qq}</td>
+          <td>{$vo.mail}</td>
+          <td>{$vo.birthday}</td>
+          <td>{$vo.dorm}</td>
+          <td>{$vo.college}</td>
+          <td>{$vo.major}</td>
+          <td>{$vo.specialty}</td>
+          <td>{$vo.expectation}</td>
+          <td>{$vo.understanding}</td>
+        </tr>
+        
+       </volist>
+      </tbody>
+    </table>
+      
+
+      </p>
+   </div>
+</div>
+
+
+	
+	</body>
+
+</html>

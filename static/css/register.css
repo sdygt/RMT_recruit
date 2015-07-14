@@ -1,0 +1,237 @@
+/*==========以下部分是Validform必须的===========*/
+.Validform_checktip{
+	margin-left:17px;
+	line-height:37px;
+	height:36px;
+	overflow:hidden;
+	color:#999;
+	font-size:12px;
+	float: left;
+}
+.Validform_right{
+	color:#3291c7;
+	padding-left:20px;
+	background:url(../img/right.png) no-repeat left center;
+}
+.Validform_wrong{
+	color:red;
+	padding-left:20px;
+	white-space:nowrap;
+	background:url(../img/error.png) no-repeat left center;
+}
+.Validform_loading{
+	padding-left:20px;
+	background:url(../img/onLoad.gif) no-repeat left center;
+}
+.Validform_error{
+	background-color:#ffe7e7;
+}
+#Validform_msg{color:#7d8289; font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif; width:280px; -webkit-box-shadow:2px 2px 3px #aaa; -moz-box-shadow:2px 2px 3px #aaa; background:#fff; position:absolute; top:0px; right:50px; z-index:99999; display:none;filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999');}
+#Validform_msg .iframe{position:absolute; left:0px; top:-1px; z-index:-1;}
+#Validform_msg .Validform_title{line-height:25px; height:25px; text-align:left; font-weight:bold; padding:0 8px; color:#fff; position:relative; background-color:#000;}
+#Validform_msg a.Validform_close:link,#Validform_msg a.Validform_close:visited{line-height:22px; position:absolute; right:8px; top:0px; color:#fff; text-decoration:none;}
+#Validform_msg a.Validform_close:hover{color:#cc0;}
+#Validform_msg .Validform_info{padding:8px;border:1px solid #000; border-top:none; text-align:left;}
+/*==========以上部分是Validform必须的===========*/
+body{
+	margin: 0px;font-family: '微软雅黑', Arial, Helvetica, sans-serif;
+}
+a{
+	color: white;
+	text-decoration: none;
+}
+img{
+	border: 0px;
+}
+.content {
+	max-width: 100%;
+	min-width: 325px;
+	box-shadow:0px 0px 0px gray;
+	position: relative;
+}
+.content form{
+	margin-top: 67px;
+	position: relative;
+	display: block;
+	margin: 2px auto;
+	width: 700px;
+}
+label{
+	position: relative;
+	font-size: 15px;
+	height: 36px;
+	float: left;
+	text-align: right;
+	font-size: normal;
+	line-height: 37px;
+	display: inline;
+	color: #777;
+}
+input{
+	float: left;
+	height: 36px;
+	outline: none;
+	width: 240px;
+	border: 1px solid gray;
+	border-radius: 5px;
+	padding: 3px 18px;
+	font-size: 20px;
+	color: #333;
+	vertical-align: middle;
+	background-color: rgb(250, 250, 255);
+}
+select{
+	float: left;
+}
+li{
+	list-style-type: none;
+	margin-bottom: 10px;
+	height: 36px;
+	padding: 0;
+	position: relative;
+}
+ul{
+	padding: 0;
+}
+.clear{
+	clear: both;
+}
+.choice1{
+	position: relative;
+	width: 13px;height: 32px;
+	left: 20px;
+	border: 0!important;
+	padding: 0!important;
+}
+.choice{
+	position: relative;
+	width: 40px;height: 36px;line-height: 37px;
+	text-align: left;
+	left: 20px;
+}
+select{
+	position: relative;
+	height: 36px;line-height: 37px;
+	border-radius: 3px;
+	border: 1px solid gray;
+	width: 240px;
+}
+#b-y{
+	width: 120px;
+}
+#b-m,#b-d{
+	width: 60px;
+}
+option{
+	height: 30px;
+	border: 1px solid gray;
+}
+textarea{
+	height: 150px;
+	width: 240px;
+	border: 1px solid gray;
+	border-radius: 3px;
+	font-size:14px;
+	padding: 5px;
+	color: #686868!important;
+	float: left;
+}
+#submit{
+	position: relative;
+	height: 30px;width: 150px;
+	background-color: #3291c7;
+	padding: 3px 0px;
+	border: 0;
+	border-radius: 3px;
+	left: 150px;
+	top:6px;
+	cursor:pointer;
+	box-shadow: 0px 0px 3px gray;
+	color: white;
+}
+#submit:hover{
+	box-shadow: 0px 0px 5px gray;
+}
+.li-beizhu{
+	height: 150px;
+}
+#z-bottom{
+	height: 50px;
+	position: relative;
+}
+#bumen-check{margin-left:70px; }
+.token{
+	display: none;
+}
+.form-title{
+	position: relative;left: 47px;
+	color: #333;
+}
+.header{
+	background-color: #4F83CF;
+	background-repeat: repeat-x;
+	border: 0!important;
+	z-index: 100;
+}
+.title{
+	width: 100%;
+	height: 135px;
+	background:rgba(71, 71, 71, 1);
+	color: white;
+}
+.title-div{
+	width: 1024px;
+	max-width: 100%;
+	padding-left: 30px;
+	position: relative;
+	height: 100%;
+	margin: 0 auto;
+}
+.title1{
+	position: absolute;
+	top: -21px;left: 16px;
+	font-size: 65px;
+	font-family: '微软雅黑';
+	font-weight: 900;
+}
+.title2{
+	position: absolute;
+	top: 52px;
+	left: 375px;
+	font-family: sans-serif;
+	font-size: 21px;
+}
+.container{
+	width:960px;
+	min-width: 325px;
+	margin:0 auto;
+}
+.tip{
+	background:#466D83;
+	color: #fff;
+	border-radius: 3px;
+	padding: 10px 20px;
+	line-height: 18px;
+	width: 100%;
+	margin-top: 20px;
+	font-size: 13px;
+}
+.turn{
+	position: absolute;
+	font-family: sans-serif;
+	font-size: 21px;
+	border-bottom: 1px solid #AFAECA;
+}
+.turn1{
+	position: absolute;
+	font-family: sans-serif;
+	font-size: 21px;
+	border-bottom: 1px solid #AFAECA;
+}
+#result{
+	color: #1F16F5;
+	font-size: 12px;
+}
+#li-result{
+	display: none;
+}

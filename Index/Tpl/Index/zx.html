@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="__ROOT__/static/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="__ROOT__/static/css/switchery.css" />
+	<link rel="stylesheet" type="text/css" href="__ROOT__/static/css/iconfont.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+	<meta name="HandheldFriendly" content="true">
+	<!-- 微软的老式浏览器 -->
+	<meta name="MobileOptimized" content="320">
+	<!-- uc强制竖屏 -->
+	<meta name="screen-orientation" content="portrait">
+	<!-- QQ强制竖屏 -->
+	<meta name="x5-orientation" content="portrait">
+	<!-- UC强制全屏 -->
+	<meta name="full-screen" content="yes">
+	<!-- QQ强制全屏 -->
+	<meta name="x5-fullscreen" content="true">
+	<!-- UC应用模式 -->
+	<meta name="browsermode" content="application">
+	<!-- QQ应用模式 -->
+	<meta name="x5-page-mode" content="app">
+	<!-- windows phone 点击无高光 -->
+	<meta name="msapplication-tap-highlight" content="no">
+	<title>报名表填写 -  南京邮电大学融媒体中心招新</title>
+</head>
+<body>
+	
+<!--这里是表单-->
+<div class="reader">
+	<div id="container" class="container-box fixed-float animate">
+		<div class="container">
+			<div class="list" >
+				<div class="navbar flex">
+                    <div class="span-back flex-box-1"  onClick="return()">
+                       返回
+                    </div>
+                    <div class="span-title flex-box-1">
+                        报名系统
+                    </div>
+                    <div class="span-detail flex-box-1" onclick="closeWindow()">
+                        关闭
+                    </div>
+                </div>
+				<div class="nap"></div>
+				<div class="object">
+                    <div class="comment">
+                        姓名：
+                    </div>
+                    <div class="control">
+                        <input type="text" class="small" value="" name="name" datatype="ming"  />
+                    </div>
+                </div>
+                <div class="object">
+                    <div class="comment">
+                        学号：
+                    </div>
+                    <div class="control">
+                        <input type="text" class="small" value="" name="xh" datatype="ming"  />
+                    </div>
+                </div>
+                <div class="object">
+                    <div class="comment">
+                        性别
+                    </div>
+                    <div class="control">
+                        <p>&nbsp;&nbsp;<span>女生</span>&nbsp;&nbsp;<input type="checkbox" class="js-switch" name="s_sex" />&nbsp;&nbsp;<span>男生</span></p>
+
+                    </div>
+                </div>
+
+                <div class="object">
+                    <div class="comment">
+                        生日：
+                    </div>
+                    <div class="control">
+	                    <select name="birthday-y" id="b-y" style="width:80px;" datatype="n" >
+							<option vlaue="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年</option>
+						</select>
+	                    <select name="birthday-m" id="b-m" style="width:40px;padding-left:0px;padding-right:0px;" datatype="n" >
+							<option vlaue="">月</option>
+						</select>
+						<select name="birthday-d" id="b-d" style="width:40px;padding-left:0px;padding-right:0px;" datatype="n" >
+							<option value="">日</option>
+						</select>    
+                    </div>
+                </div>
+                <div class="object">
+                    <div class="comment">
+                        手机号：
+                    </div>
+                    <div class="control">
+                        <input type="text" class="small" value="" name="name" datatype="ming"  />
+                    </div>
+                </div>
+                <div class="object">
+                    <div class="comment">
+                        QQ号：
+                    </div>
+                    <div class="control">
+                        <input type="text" class="small" value="" name="name" datatype="ming"  />
+                    </div>
+                </div>
+                <div class="object">
+                    <div class="comment">
+                        邮箱：
+                    </div>
+                    <div class="control">
+                        <input type="text" class="small" value="" name="name" datatype="ming"  />
+                    </div>
+                </div>
+                <div class="object">
+                    <div class="comment">
+                        宿舍：
+                    </div>
+                    <div class="control">
+                        <input type="text" class="small" value="" name="name" datatype="ming"  />
+                    </div>
+                </div>
+                <div class="object">
+                    <div class="comment">
+                        学院：
+                    </div>
+                    <div class="control">
+                        <select class="control" type="text" name="college" datatype="*" >
+							<option value="">请选择你的学院..</option>
+							<option value="通信与信息工程学院">通信与信息工程学院</option>
+							<option value="电子科学与工程学院">电子科学与工程学院</option>
+							<option value="光电工程学院">光电工程学院</option>
+							<option value="计算机学院、软件学院">计算机学院、软件学院</option>
+							<option value="自动化学院">自动化学院</option>
+							<option value="材料科学与工程学院">材料科学与工程学院</option>
+							<option value="物联网学院">物联网学院</option>
+							<option value="理学院">理学院</option>
+							<option value="地理与生物信息学院">地理与生物信息学院</option>
+							<option value="传媒与艺术学院（文化艺术中心）">传媒与艺术学院（文化艺术中心）</option>
+							<option value="管理学院">管理学院</option>
+							<option value="经济学院">经济学院</option>
+							<option value="马克思主义学院">马克思主义学院</option>
+							<option value="人文与社会科学学院">人文与社会科学学院</option>
+							<option value="外国语学院">外国语学院</option>
+							<option value="教育科学与技术学院">教育科学与技术学院</option>
+							<option value="贝尔英才学院">贝尔英才学院</option>
+							<option value="海外教育学院">海外教育学院</option>
+						</select>
+                    </div>
+                </div>
+                <div class="object">
+                    <div class="comment">
+                        专业：
+                    </div>
+                    <div class="control">
+                        <input type="text" class="small" value="" name="name" datatype="ming"  />
+                    </div>
+                </div>
+                <div class="object">
+                    <div class="comment">
+                        来自城市：
+                    </div>
+                    <div class="control">
+                        <input type="text" class="small" value="" name="name" datatype="ming"  />
+                    </div>
+                </div>
+                <div class="object">
+                    <div class="comment">
+                        部门选择：
+                    </div>
+                    <div class="control">
+                        <select name="department1"  datatype="*">
+							<option value="">请选择..</option>
+							<option value="新闻采编部">新闻采编部</option>
+							<option value="视觉部">视觉部</option>
+							<option value="播音部">播音部</option>
+							<option value="技术部">技术部</option>
+							<option value="策划部">策划部</option>
+							<option value="运营部">运营部</option>
+						</select>
+                    </div>
+                </div>
+                <div class="paragraph">
+                    <div class="title">
+                        特长获奖：
+                    </div>
+                    <div class="content">
+                        <input type="textarea" class="small" value="" name="name" datatype="ming" />
+                    </div>
+                </div>
+                <div class="paragraph">
+                    <div class="title">
+                        主要经历：
+                    </div>
+                    <div class="content">
+                        <input  type="textarea" class="small" value="" name="name" datatype="ming" />
+                    </div>
+                </div>
+                <div class="paragraph">
+                    <div class="title">
+                        应聘理由：
+                    </div>
+                    <div class="content">
+                        <input type="textarea" class="small" value="" name="name" datatype="ming"  />
+                    </div>
+                </div>
+                <div class="object">
+                    <a class="button" href="#" >
+                        提交
+                    </a>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+    <script type="text/javascript" src="__ROOT__/static/js/switchery.js"></script>
+	<script type="text/javascript" src="__ROOT__/static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="__ROOT__/static/js/Validform_v5.3.2.js"></script>
+	<script type="text/javascript" src="__ROOT__/static/js/register.js"></script>
+	<script type="text/javascript">
+    
+$(function(){
+	$(".demoform").Validform({
+		//这里是表单查错用的js
+		tiptype:function(msg,o,cssctl){
+			if(!o.obj.is("form")){
+				var objtip=o.obj.siblings(".Validform_checktip");
+				cssctl(objtip,o.type);
+				objtip.text(msg);
+			}
+		},
+		//这里用于ajax提交
+		ajaxPost:true,
+		callback:function(data){
+			switch(data.responseText){
+				//根据返回值提示信息
+				case "xh_not_rhight":alert("学号格式错误");break;
+				case "no_foreigner":alert("姓名请使用中文");break;
+				case "mail_not_right":alert("邮箱格式错误");break; 
+				case "alreadyHaveTheAccount":alert("此学号已经报名");break;
+				case "dorm_not_right":alert("宿舍不能为空");break;
+				case "college_not_right":alert("学院不能为空");break;
+				case "major_not_right":alert("专业不能为空");break;
+				case "local_not_right":alert("来自城市不能为空");break;
+				case "specialty_not_right":alert("特长不能为空");break;
+				case "expectation_not_right":alert("经历不能为空");break;
+				case "understanding_not_right":alert("理由不能为空");break;
+				case "successful":alert("报名成功");location.href = "__ROOT__/index.php";break;
+				case "WTF R U DOING!":alert("抱歉，数据写入错误，您可以尝试更换浏览器后再次尝试，我们将尽快解决这个问题");break;
+				default:alert("返回值错误，您可以尝试更换浏览器后再次尝试，我们将尽快解决这个问题");alert(data.responseText);
+			}
+		}
+
+	});
+
+})
+	var elems = document.querySelector('.js-switch');
+    var switchery = new Switchery(elems, {
+        color: '#7bbfea'
+    });
+
+	</script>
+    <script type="text/javascript">
+    function   closeWindow()   {  
+   
+  window.open('','_parent','');  
+   
+  window.close();  
+   
+  }  
+       function return(){
+    var mymessage=confirm("你是女士吗?") ;
+    if(mymessage==true)
+    {
+        document.write("你是女士!");
+    }
+    else
+    {
+        document.write("你是男士!");
+    }
+  }    
+  </script>
+    </script>
+
+</div>
+</body>
+</html>

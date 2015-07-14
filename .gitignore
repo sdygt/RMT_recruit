@@ -1,0 +1,5 @@
+admin/APP/Runtime/
+admin/APP/Conf/config.php
+Index/Runtime/
+Index/Conf/config.php
+*.log
