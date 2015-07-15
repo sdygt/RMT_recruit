@@ -1,7 +1,7 @@
 $(document).ready(function(){      //这里用来向生日选项添加数字
 	var i,j,k;
 	var con1,con2,con3;
-	for (i = 1985; i < 2010; i++) {
+	for (i = 1990; i <= 2000; i++) {
 		$("#b-y").append("<option value="+i+">"+i+"</option>");
 	};
 	for (j = 1; j < 13; j++) {
@@ -15,12 +15,8 @@ $(document).ready(function(){      //这里用来向生日选项添加数字
 	
 });
 
-function verify() {    //验证表单的
+function verify() {    //验证表单的,需要判断空白和无效值
 	return true;
 }
 
-$(document).ready(function() {
-	$("button").click(function(){
-		console.log("submit click");
-	});
-};)
+

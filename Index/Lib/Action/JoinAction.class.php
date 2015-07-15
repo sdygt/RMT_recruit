@@ -1,5 +1,5 @@
 <?php
-@header("content-Type: text/html; charset=utf-8");
+@header("content-Type: text/html; charset=utf-8"); //这个文件不要了，以后会删掉，先留作参考
 class JoinAction extends Action {
     public function add() {
         $stulist = M('User');
