@@ -63,13 +63,13 @@ class JoinAction extends Action {
                 echo "alreadyHaveTheAccount";
                 return ;
             }
-            	$stulist->add($data);
-           	 	echo "successful";
-		} else {
-		            echo 'WTF R U DOING!';
-		            echo date('d');
-		       }    
-    }
+            $stulist->add($data);
+            echo "successful";
+        } else {
+          echo 'WTF R U DOING!';
+          echo date('d');
+        }    
+  }
 
 }
 
