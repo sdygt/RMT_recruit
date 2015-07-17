@@ -65,13 +65,13 @@
                             生日：
                         </div>
                         <div class="control">
-                           <select name="birthday-y" id="b-y" style="width:80px;" >
+                           <select name="birthday_y" id="b-y" style="width:80px;" >
                              <option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年</option>
                          </select>
-                         <select name="birthday-m" id="b-m" style="width:40px;padding-left:0px;padding-right:0px;" >
+                         <select name="birthday_m" id="b-m" style="width:40px;padding-left:0px;padding-right:0px;" >
                              <option value="">月</option>
                          </select>
-                         <select name="birthday-d" id="b-d" style="width:40px;padding-left:0px;padding-right:0px;" >
+                         <select name="birthday_d" id="b-d" style="width:40px;padding-left:0px;padding-right:0px;" >
                              <option value="">日</option>
                          </select>    
                         </div>
@@ -192,14 +192,14 @@
                             <input type="textarea" class="small" value="" name="reason"  />
                         </div>
                     </div>
-                    <div class="paragraph" id="btnSubmit">
-                        <button class="button" id="submit">
+                    <div class="paragraph" id="submit">
+                        <button class="button" id="btnSubmit">
                         提交
                         </button>
                     </div>
                 </div>
             </div>
-            <div class="object">
+            <div class="object"><!-- WTF -->
 
             </div>
         </div>
@@ -211,41 +211,6 @@
 <script type="text/javascript" src="__ROOT__/static/js/register.js"></script>
 <script type="text/javascript">
 
-/*$(function(){
-$(".demoform").Validform({
-        //这里是表单查错用的js
-        tiptype:function(msg,o,cssctl){
-            if(!o.obj.is("form")){
-                var objtip=o.obj.siblings(".Validform_checktip");
-                cssctl(objtip,o.type);
-                objtip.text(msg);
-            }
-        },
-        //这里用于ajax提交
-        ajaxPost:true,
-        callback:function(data){
-            switch(data.responseText){
-                //根据返回值提示信息
-                case "xh_not_rhight":alert("学号格式错误");break;
-                case "no_foreigner":alert("姓名请使用中文");break;
-                case "mail_not_right":alert("邮箱格式错误");break; 
-                case "alreadyHaveTheAccount":alert("此学号已经报名");break;
-                case "dorm_not_right":alert("宿舍不能为空");break;
-                case "college_not_right":alert("学院不能为空");break;
-                case "major_not_right":alert("专业不能为空");break;
-                case "local_not_right":alert("来自城市不能为空");break;
-                case "specialty_not_right":alert("特长不能为空");break;
-                case "expectation_not_right":alert("经历不能为空");break;
-                case "understanding_not_right":alert("理由不能为空");break;
-                case "successful":alert("报名成功");location.href = "__ROOT__/index.php";break;
-                case "WTF R U DOING!":alert("抱歉，数据写入错误，您可以尝试更换浏览器后再次尝试，我们将尽快解决这个问题");break;
-                default:alert("返回值错误，您可以尝试更换浏览器后再次尝试，我们将尽快解决这个问题");alert(data.responseText);
-            }
-        }
-
-    });
-
-})*/
 var elems = document.querySelector('.js-switch');
 var switchery = new Switchery(elems, {
     color: '#7bbfea'
@@ -270,48 +235,10 @@ function closeWindow() {
 }    */
 </script>
 <script type="text/javascript"> //提交表单用
-verify();
+var path = "{:U('Index/addEntry')}";
 $(document).ready(function(){
-
-    $("#btnSubmit").click(function(){
-
-        var name       = $("[name='name']").val();
-        var xh         = $("[name='xh']").val();
-        var s_sex      = $("[name='s_sex']").is(":checked")?"男":"女";
-        var birthday   = $("[name='birthday-y']").val()+'-'+$("[name='birthday-m']").val()+'-'+$("[name='birthday-d']").val();
-        var tel        = $("[name='tel']").val();
-        var qq         = $("[name='qq']").val();
-        var email      = $("[name='email']").val();
-        var dorm       = $("[name='dorm']").val();
-        var college    = $("[name='college']").val();
-        var spec       = $("[name='spec']").val();
-        var city       = $("[name='city']").val();
-        var department = $("[name='department']").val();
-        var award      = $("[name='award']").val();
-        var exp        = $("[name='exp']").val();
-        var reason     = $("[name='reason']").val();
-        
-        $.post("{:U('Index/addEntry')}",
-            {
-                "name":name,
-                "xh":xh,
-                "sex":s_sex,
-                "birthday":birthday,
-                "tel":tel,
-                "qq":qq,
-                "email":email,
-                "dorm":dorm,
-                "college":college,
-                "spec":spec,
-                "city":city,
-                "department":department,
-                "award":award,
-                "exp":exp,
-                "reason":reason
-            },
-            function(result){
-            console.log(result);
-        });
+    $("#btnSubmit").click(function() {
+        verify_and_submit(path);
     });
 });
 </script>
