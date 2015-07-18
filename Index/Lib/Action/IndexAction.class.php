@@ -17,3 +17,5 @@ class IndexAction extends Action {
         $this->ajaxReturn(array("sql"=>$data->getLastSql()));  //调试用，输出实际执行的SQL
     }
 }
+
+?>

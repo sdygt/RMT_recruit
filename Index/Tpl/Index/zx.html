@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <link rel="stylesheet" type="text/css" href="__ROOT__/static/css/style.css" />
     <link rel="stylesheet" type="text/css" href="__ROOT__/static/css/switchery.css" />
     <link rel="stylesheet" type="text/css" href="__ROOT__/static/css/iconfont.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
     <meta name="HandheldFriendly" content="true">
-    <meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
-    <meta name="screen-orientation" content="portrait"><!-- uc强制竖屏 -->
-    <meta name="x5-orientation" content="portrait"><!-- QQ强制竖屏 -->
-    <meta name="full-screen" content="yes"><!-- UC强制全屏 -->
-    <meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
-    <meta name="browsermode" content="application"><!-- UC应用模式 -->
-    <meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
-    <meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->
+    <meta name="MobileOptimized" content="320">
+    <!-- 微软的老式浏览器 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- uc强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- UC强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- QQ强制全屏 -->
+    <meta name="browsermode" content="application">
+    <!-- UC应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- QQ应用模式 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- windows phone 点击无高光 -->
     <title>报名表填写 - 南京邮电大学融媒体中心招新</title>
 </head>
+
 <body>
     <!--这里是表单-->
     <div class="reader">
@@ -25,15 +35,15 @@
             <div class="container">
                 <div class="list">
                     <div class="navbar flex">
-                        <div class="span-back flex-box-1"  onClick="return true;">
-                         返回
+                        <div class="span-back flex-box-1" onClick="return true;">
+                            返回
                         </div>
-                    <div class="span-title flex-box-1">
-                        报名系统
-                    </div>
-                    <div class="span-detail flex-box-1" onclick="closeWindow()">
-                        关闭
-                    </div>
+                        <div class="span-title flex-box-1">
+                            报名系统
+                        </div>
+                        <div class="span-detail flex-box-1" onclick="closeWindow()">
+                            关闭
+                        </div>
                     </div>
                     <div class="nap"></div>
                     <div class="object">
@@ -41,7 +51,7 @@
                             姓名：
                         </div>
                         <div class="control">
-                            <input type="text" class="small" value="" name="name"  />
+                            <input type="text" class="small" value="" name="name" />
                         </div>
                     </div>
                     <div class="object">
@@ -49,7 +59,7 @@
                             学号：
                         </div>
                         <div class="control">
-                            <input type="text" class="small" value="" name="xh"  />
+                            <input type="text" class="small" value="" name="xh" />
                         </div>
                     </div>
                     <div class="object">
@@ -57,7 +67,8 @@
                             性别
                         </div>
                         <div class="control">
-                            <p>&nbsp;&nbsp;<span>女生</span>&nbsp;&nbsp;<input type="checkbox" class="js-switch" name="s_sex" />&nbsp;&nbsp;<span>男生</span></p>
+                            <p>&nbsp;&nbsp;<span>女生</span>&nbsp;&nbsp;
+                                <input type="checkbox" class="js-switch" name="s_sex" />&nbsp;&nbsp;<span>男生</span></p>
                         </div>
                     </div>
                     <div class="object">
@@ -65,15 +76,15 @@
                             生日：
                         </div>
                         <div class="control">
-                           <select name="birthday_y" id="b-y" style="width:80px;" >
-                             <option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年</option>
-                         </select>
-                         <select name="birthday_m" id="b-m" style="width:40px;padding-left:0px;padding-right:0px;" >
-                             <option value="">月</option>
-                         </select>
-                         <select name="birthday_d" id="b-d" style="width:40px;padding-left:0px;padding-right:0px;" >
-                             <option value="">日</option>
-                         </select>    
+                            <select name="birthday_y" id="b-y" style="width:80px;">
+                                <option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年</option>
+                            </select>
+                            <select name="birthday_m" id="b-m" style="width:40px;padding-left:0px;padding-right:0px;">
+                                <option value="">月</option>
+                            </select>
+                            <select name="birthday_d" id="b-d" style="width:40px;padding-left:0px;padding-right:0px;">
+                                <option value="">日</option>
+                            </select>
                         </div>
                     </div>
                     <div class="object">
@@ -81,7 +92,7 @@
                             手机号：
                         </div>
                         <div class="control">
-                            <input type="text" class="small" value="" name="tel"  />
+                            <input type="text" class="small" value="" name="tel" />
                         </div>
                     </div>
                     <div class="object">
@@ -89,7 +100,7 @@
                             QQ号：
                         </div>
                         <div class="control">
-                            <input type="text" class="small" value="" name="qq"  />
+                            <input type="text" class="small" value="" name="qq" />
                         </div>
                     </div>
                     <div class="object">
@@ -97,7 +108,7 @@
                             邮箱：
                         </div>
                         <div class="control">
-                            <input type="text" class="small" value="" name="email"  />
+                            <input type="text" class="small" value="" name="email" />
                         </div>
                     </div>
                     <div class="object">
@@ -105,7 +116,7 @@
                             宿舍：
                         </div>
                         <div class="control">
-                            <input type="text" class="small" value="" name="dorm"  />
+                            <input type="text" class="small" value="" name="dorm" />
                         </div>
                     </div>
                     <div class="object">
@@ -113,7 +124,7 @@
                             学院：
                         </div>
                         <div class="control">
-                            <select class="control" type="text" name="college"  >
+                            <select class="control" type="text" name="college">
                                 <option value="">请选择你的学院..</option>
                                 <option value="通信与信息工程学院">通信与信息工程学院</option>
                                 <option value="电子科学与工程学院">电子科学与工程学院</option>
@@ -141,7 +152,7 @@
                             专业：
                         </div>
                         <div class="control">
-                            <input type="text" class="small" value="" name="spec"  />
+                            <input type="text" class="small" value="" name="spec" />
                         </div>
                     </div>
                     <div class="object">
@@ -149,7 +160,7 @@
                             来自城市：
                         </div>
                         <div class="control">
-                            <input type="text" class="small" value="" name="city"  />
+                            <input type="text" class="small" value="" name="city" />
                         </div>
                     </div>
                     <div class="object">
@@ -157,7 +168,7 @@
                             部门选择：
                         </div>
                         <div class="control">
-                            <select name="department"  >
+                            <select name="department">
                                 <option value="">请选择..</option>
                                 <option value="新闻采编部">新闻采编部</option>
                                 <option value="视觉部">视觉部</option>
@@ -181,7 +192,7 @@
                             主要经历：
                         </div>
                         <div class="content">
-                            <input  type="textarea" class="small" value="" name="exp" />
+                            <input type="textarea" class="small" value="" name="exp" />
                         </div>
                     </div>
                     <div class="paragraph">
@@ -189,58 +200,50 @@
                             应聘理由：
                         </div>
                         <div class="content">
-                            <input type="textarea" class="small" value="" name="reason"  />
+                            <input type="textarea" class="small" value="" name="reason" />
                         </div>
                     </div>
                     <div class="paragraph" id="submit">
                         <button class="button" id="btnSubmit">
-                        提交
+                            提交
                         </button>
                     </div>
                 </div>
             </div>
-            <div class="object"><!-- WTF -->
-
+            <div class="object">
+                <!-- WTF -->
             </div>
         </div>
     </div>
-
-<script type="text/javascript" src="__ROOT__/static/js/switchery.js"></script>
-<script type="text/javascript" src="__ROOT__/static/js/jquery.min.js"></script>
-<!-- <script type="text/javascript" src="__ROOT__/static/js/Validform_v5.3.2.js"></script> -->
-<script type="text/javascript" src="__ROOT__/static/js/register.js"></script>
-<script type="text/javascript">
-
-var elems = document.querySelector('.js-switch');
-var switchery = new Switchery(elems, {
-    color: '#7bbfea'
-});
-
-</script>
-<script type="text/javascript">
-function closeWindow() {  
-    window.open('','_parent','');  
-    window.close();  
-}  
-/*function return(){
-    var mymessage=confirm("你是女士吗?") ;
-    if(mymessage==true)
-    {
-        document.write("你是女士!");
-    }
-    else
-    {
-        document.write("你是男士!");
-    }
-}    */
-</script>
-<script type="text/javascript"> //提交表单用
-var path = "{:U('Index/addEntry')}";
-$(document).ready(function(){
-    $("#btnSubmit").click(function() {
-        verify_and_submit(path);
+    <script type="text/javascript" src="__ROOT__/static/js/switchery.js"></script>
+    <script type="text/javascript" src="__ROOT__/static/js/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="__ROOT__/static/js/Validform_v5.3.2.js"></script> -->
+    <script type="text/javascript" src="__ROOT__/static/js/register.js"></script>
+    <script type="text/javascript">
+    var elems = document.querySelector('.js-switch');
+    var switchery = new Switchery(elems, {
+        color: '#7bbfea'
     });
-});
-</script>
+
+    </script>
+    <script type="text/javascript">
+    function closeWindow() {
+        window.open('', '_parent', '');
+        window.close();
+    }
+
+    </script>
+    <script type="text/javascript">
+    //提交表单用
+    var path = "{:U('Index/addEntry')}";
+    $(document).ready(function() {
+        $("#btnSubmit").click(function() {
+            verify_and_submit(path);
+        });
+    });
+
+    </script>
 </body>
+
 </html>
+
