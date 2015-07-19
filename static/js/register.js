@@ -1,3 +1,4 @@
+"use strict";
 $(document).ready(function() { //这里用来向生日选项添加数字
     var i, j, k;
     var con1, con2, con3;
@@ -14,31 +15,32 @@ $(document).ready(function() { //这里用来向生日选项添加数字
 });
 
 function verify_and_submit(path) { //验证表单并ajax提交
-    var name = $("[name='name']").val();
-    var xh = $("[name='xh']").val();
-    var s_sex = $("[name='s_sex']").is(":checked") ? "男" : "女";
-    var birthday_y = $("[name='birthday_y']").val();
-    var birthday_m = $("[name='birthday_m']").val();
-    var birthday_d = $("[name='birthday_d']").val();
-    var birthday
-    if (birthday_y == "" || birthday_m == "" || birthday_d == "") {
-        birthday = "";
-    } else {
-        birthday = birthday_y + '-' + birthday_m + '-' + birthday_d;
+    { //取值
+        var name = $("[name='name']").val();
+        var xh = $("[name='xh']").val();
+        var s_sex = $("[name='s_sex']").is(":checked") ? "男" : "女";
+        var birthday_y = $("[name='birthday_y']").val();
+        var birthday_m = $("[name='birthday_m']").val();
+        var birthday_d = $("[name='birthday_d']").val();
+        var birthday
+        if (birthday_y == "" || birthday_m == "" || birthday_d == "") {
+            birthday = "";
+        } else {
+            birthday = birthday_y + '-' + birthday_m + '-' + birthday_d;
+        }
+        var tel = $("[name='tel']").val();
+        var qq = $("[name='qq']").val();
+        var email = $("[name='email']").val();
+        var dorm = $("[name='dorm']").val();
+        var college = $("[name='college']").val();
+        var spec = $("[name='spec']").val();
+        var city = $("[name='city']").val();
+        var department = $("[name='department']").val();
+        var award = $("[name='award']").val();
+        var exp = $("[name='exp']").val();
+        var reason = $("[name='reason']").val();
     }
-    var tel = $("[name='tel']").val();
-    var qq = $("[name='qq']").val();
-    var email = $("[name='email']").val();
-    var dorm = $("[name='dorm']").val();
-    var college = $("[name='college']").val();
-    var spec = $("[name='spec']").val();
-    var city = $("[name='city']").val();
-    var department = $("[name='department']").val();
-    var award = $("[name='award']").val();
-    var exp = $("[name='exp']").val();
-    var reason = $("[name='reason']").val();
-
-    errtxt = { //具体的文案再说吧www
+    var errtxt = { //具体的文案再说吧www
         name: {
             empty: "姓名不能空",
             error: "姓名格式错"
@@ -95,56 +97,120 @@ function verify_and_submit(path) { //验证表单并ajax提交
     };
 
 
-    valid = true;
+    var valid = true;
 
-    // 判断各字段是否为空，若空则在placeholder输出提示。但是生日学院和部门因为是下拉框没有placeholder要特别处理。
-    for (item in errtxt) {
-        eval("if(" + item + "==''){$('[name=\"" + item + "\"]').attr('placeholder','" + errtxt[item]['empty'] + "');valid=false}");
+
+    { // 判断各字段是否为空，若空则在placeholder输出提示。但是生日学院和部门因为是下拉框没有placeholder要特别处理。
+        if (name == "") {
+            $("[name='name']").attr('placeholder', errtxt.name.empty);
+            valid = false;
+        }
+        if (xh == "") {
+            $("[name='xh']").attr('placeholder', errtxt.xh.empty);
+            valid = false;
+        }
+        if (tel == "") {
+            $("[name='tel']").attr('placeholder', errtxt.tel.empty);
+            valid = false;
+        }
+        if (qq == "") {
+            $("[name='qq']").attr('placeholder', errtxt.qq.empty);
+            valid = false;
+        }
+        if (email == "") {
+            $("[name='email']").attr('placeholder', errtxt.email.empty);
+            valid = false;
+        }
+        if (dorm == "") {
+            $("[name='dorm']").attr('placeholder', errtxt.dorm.empty);
+            valid = false;
+        }
+        if (spec == "") {
+            $("[name='spec']").attr('placeholder', errtxt.spec.empty);
+            valid = false;
+        }
+        if (city == "") {
+            $("[name='city']").attr('placeholder', errtxt.city.empty);
+            valid = false;
+        }
+        if (award == "") {
+            $("[name='award']").attr('placeholder', errtxt.award.empty);
+            valid = false;
+        }
+        if (exp == "") {
+            $("[name='exp']").attr('placeholder', errtxt.exp.empty);
+            valid = false;
+        }
+        if (reason == "") {
+            $("[name='reason']").attr('placeholder', errtxt.reason.empty);
+            valid = false;
+        }
+        if (birthday == "") {
+            alert(errtxt.birthday.empty);
+            return false;
+        }
+
+        if (college == "") {
+            alert(errtxt.college.empty);
+            return false;
+        }
+
+        if (department == "") {
+            alert(errtxt.department.empty);
+            return false;
+        };
+
+        if (valid == false) {
+            alert("有部分字段为空，请检查后重试");
+            return;
+        };
     }
 
-    if (birthday == "") {
-        alert(errtxt.birthday.empty);
-        return false;
+    { //下面判断各字段格式是否正确
+        //关于各月份天数和闰年的附加判断
+        var year = parseInt(birthday_y);
+        var month = parseInt(birthday_m);
+        var day = parseInt(birthday_d);
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+            leap = true;
+        } else {
+            leap = false;
+        };
+
+        if (($.inArray(month, [1, 3, 5, 7, 8, 10, 12] != -1) && day == 31)) { //月份不在大月列表又选了31号
+            alert("你确定" + month + "月有31号？");
+            return;
+        };
+        if (month == 2 && month == 30) {
+            alert("你确定2月有30号？");
+            return;
+        };
+
+        if (month == 2 && leap == false && day == 29) {
+            alert("你确定" + year + "年2月有29号？");
+            return;
+        };
+        if (!/[\u4E00-\u9FA5]{2,5}(?:·[\u4E00-\u9FA5]{2,5})*/.test(name)) {
+            alert(errtxt.name.error);
+            return;
+        };
+        if (!/^[BHYQ][\d]{8}/i.test(xh)) {
+            alert(errtxt.xh.error);
+            return;
+        };
+        if (!/^[1][3578][\d]{9}/.test(tel)) {
+            alert(errtxt.tel.error);
+            return;
+        };
+        if (!/^[\d]{6,11}/.test(qq)) {
+            alert(errtxt.qq.error);
+            return;
+        };
+        if (!/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/.test(email)) {
+            alert(errtxt.email.error);
+            return;
+        };
     }
-
-    if (college == "") {
-        alert(errtxt.college.empty);
-        return false;
-    }
-
-    if (department == "") {
-        alert(errtxt.department.empty);
-        return false;
-    };
-
-    if (valid == false) {
-        alert("有部分字段为空，请检查后重试");
-        return;
-    };
-
-    //下面判断各字段格式是否正确
-
-    if (!/[\u4E00-\u9FA5]{2,5}(?:·[\u4E00-\u9FA5]{2,5})*/.test(name)) {
-        alert(errtxt.name.error);
-        return;
-    };
-    if (!/^[BHYQ][\d]{8}/i.test(xh)) {
-        alert(errtxt.xh.error);
-        return;
-    };
-    if (!/^[1][3578][\d]{9}/.test(tel)) {
-        alert(errtxt.tel.error);
-        return;
-    };
-    if (!/^[\d]{6,11}/.test(qq)) {
-        alert(errtxt.qq.error);
-        return;
-    };
-    if (!/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/.test(email)) {
-        alert(errtxt.email.error);
-        return;
-    };
-
     //下面开始ajax请求
     if (valid == true) {
         $.post(path, {
