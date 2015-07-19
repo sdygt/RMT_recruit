@@ -17,9 +17,9 @@ function verify_and_submit(path) { //验证表单并ajax提交
     var name = $("[name='name']").val();
     var xh = $("[name='xh']").val();
     var s_sex = $("[name='s_sex']").is(":checked") ? "男" : "女";
-    var birthday_y = $("[name='birthday_y").val();
-    var birthday_m = $("[name='birthday_m").val();
-    var birthday_d = $("[name='birthday_d").val();
+    var birthday_y = $("[name='birthday_y']").val();
+    var birthday_m = $("[name='birthday_m']").val();
+    var birthday_d = $("[name='birthday_d']").val();
     var birthday
     if (birthday_y == "" || birthday_m == "" || birthday_d == "") {
         birthday = "";
@@ -48,40 +48,40 @@ function verify_and_submit(path) { //验证表单并ajax提交
             error: "学号格式错"
         },
         tel: {
-            empty: "不能空",
-            error: "格式错"
+            empty: "tel不能空",
+            error: "tel格式错"
         },
         qq: {
-            empty: "不能空",
-            error: "格式错"
+            empty: "qq不能空",
+            error: "qq格式错"
         },
         email: {
-            empty: "不能空",
+            empty: "email不能空",
             error: "格式错"
         },
         dorm: {
-            empty: "不能空",
-            error: "格式错"
+            empty: "dorm不能空",
+            error: "dorm格式错"
         },
         spec: {
-            empty: "不能空",
-            error: "格式错"
+            empty: "spec不能空",
+            error: "spec格式错"
         },
         city: {
-            empty: "不能空",
-            error: "格式错"
+            empty: "city不能空",
+            error: "city格式错"
         },
         award: {
-            empty: "不能空",
-            error: "格式错"
+            empty: "award不能空",
+            error: "award格式错"
         },
         exp: {
-            empty: "不能空",
-            error: "格式错"
+            empty: "exp不能空",
+            error: "exp格式错"
         },
         reason: {
-            empty: "不能空",
-            error: "格式错"
+            empty: "reason不能空",
+            error: "reason格式错"
         },
         birthday: {
             empty: "birthday empty"
@@ -119,6 +119,7 @@ function verify_and_submit(path) { //验证表单并ajax提交
 
     if (valid == false) {
         alert("有部分字段为空，请检查后重试");
+        return;
     };
 
     //下面判断各字段格式是否正确
@@ -135,7 +136,7 @@ function verify_and_submit(path) { //验证表单并ajax提交
         alert(errtxt.tel.error);
         return;
     };
-    if (!/^[\d]{6-11}/.test(qq)) {
+    if (!/^[\d]{6,11}/.test(qq)) {
         alert(errtxt.qq.error);
         return;
     };
