@@ -6,6 +6,7 @@
     font-style: normal;
 }
 
+
 @font-face {
     font-family: 'iconfont';
     src: url('../iconfont/iconfont.eot');
@@ -899,4 +900,14 @@ input[type="radio"]{
  select:focus{
 	background: #7bbfea;
 	color: #fff;
+}
+#btnSubmit{
+    cursor: pointer;
+    background: #7bbfea;
+    color: white;
+    width: 40px;
+}
+#submit{
+      width: 67px;
+  margin: 10px auto;
 }
