@@ -147,17 +147,17 @@ function verify_and_submit(path) { //验证表单并ajax提交
         }
         if (birthday == "") {
             alert(errtxt.birthday.empty);
-            return false;
+            return;
         }
 
         if (college == "") {
             alert(errtxt.college.empty);
-            return false;
+            return;
         }
 
         if (department == "") {
             alert(errtxt.department.empty);
-            return false;
+            return;
         };
 
         if (valid == false) {
@@ -172,9 +172,9 @@ function verify_and_submit(path) { //验证表单并ajax提交
         var month = parseInt(birthday_m);
         var day = parseInt(birthday_d);
         if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
-            leap = true;
+            var leap = true;
         } else {
-            leap = false;
+            var leap = false;
         };
 
         if (($.inArray(month, [1, 3, 5, 7, 8, 10, 12] != -1) && day == 31)) { //月份不在大月列表又选了31号
@@ -194,7 +194,7 @@ function verify_and_submit(path) { //验证表单并ajax提交
             alert(errtxt.name.error);
             return;
         };
-        if (!/^[BHYQ][\d]{8}/i.test(xh)) {
+        if (!/^[BHYQ][\d]{8}$/i.test(xh)) {
             alert(errtxt.xh.error);
             return;
         };
@@ -202,7 +202,7 @@ function verify_and_submit(path) { //验证表单并ajax提交
             alert(errtxt.tel.error);
             return;
         };
-        if (!/^[\d]{6,11}/.test(qq)) {
+        if (!/^[1-9][0-9]{4,}/.test(qq)) {
             alert(errtxt.qq.error);
             return;
         };
@@ -232,6 +232,21 @@ function verify_and_submit(path) { //验证表单并ajax提交
             },
             function(result) {
                 console.log(result);
+                switch (result.errno)
+                {
+                    case 0:
+                        alert('提交成功！');
+                        break;
+                    case 1:
+                        alert('此学号已提交过申请，若需修改请前往首页>登录修改信息');
+                        break;
+                    case -1:
+                        alert('数据字段验证错误，请检查输入格式');
+                        break;
+                    default:
+                        alert('未知错误，请稍后重试或联系我们。');
+                        break;
+                }
             });
     };
 
