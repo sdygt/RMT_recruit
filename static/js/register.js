@@ -59,7 +59,7 @@ function verify_and_submit(path) { //验证表单并ajax提交
         },
         email: {
             empty: "email不能空",
-            error: "格式错"
+            error: "email格式错"
         },
         dorm: {
             empty: "dorm不能空",
@@ -236,6 +236,7 @@ function verify_and_submit(path) { //验证表单并ajax提交
                 {
                     case 0:
                         alert('提交成功！');
+                        window.location.href="../../";
                         break;
                     case 1:
                         alert('此学号已提交过申请，若需修改请前往首页>登录修改信息');

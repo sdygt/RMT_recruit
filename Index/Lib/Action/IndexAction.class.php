@@ -89,6 +89,24 @@ class IndexAction extends Action {
         $db->add($_POST);
         $this->ajaxReturn(array('errno'=>0,'errmsg'=>'success','sql'=>$db->getLastSql()));  //调试用，输出实际执行的SQL
     }
+    public function loginV(){
+
+        if (!IS_AJAX) {
+            $this->error('非法操作！',U('Index/login'));
+        }
+
+        $user = M('freshman')->where('name="'.I('POST.name').'"')->find();
+        
+        if (!I('POST.name')||$user['tel']!=I('POST.tel')||$user['xh']!=I('POST.xh'))//若密码错误或者未能获取有效密码
+        {
+            $this->ajaxReturn(array('status' => 1));//bad name or password
+        }
+        else
+        {
+            session('loggeduser',I('POST.name'));
+            $this->ajaxReturn(array('status' => 0));//success
+        }
+    }
 }
 
 ?>

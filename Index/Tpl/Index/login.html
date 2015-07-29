@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="__ROOT__/static/css/style.css" />
     <link rel="stylesheet" type="text/css" href="__ROOT__/static/css/switchery.css" />
     <link rel="stylesheet" type="text/css" href="__ROOT__/static/css/iconfont.css" />
+    <link href="__ROOT__/static/css/loginbtn.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
@@ -52,7 +53,7 @@
                         姓名：
                     </div>
                     <div class="control">
-                        <input type="text" class="small" value="" name="name" datatype="ming"  />
+                        <input type="text" class="small" value="" name="name" datatype="ming" id="name" />
                     </div>
                 </div>
                 <div class="object">
@@ -60,7 +61,7 @@
                         学号：
                     </div>
                  <div class="control">
-                        <input type="text" class="small" value="" name="xh" datatype="ming"  />
+                        <input type="text" class="small" value="" name="xh" datatype="ming" id="xh" />
                     </div>
                 </div>
                 <div class="object">
@@ -68,13 +69,14 @@
                         手机号：
                     </div>
                  <div class="control">
-                        <input type="text" class="small" value="" name="xh" datatype="ming"  />
+                        <input type="text" class="small" value="" name="tel" datatype="ming" id="tel" />
                     </div>
                 </div>
-                <div class="object">
-                    <a class="button" href=" __ROOT__/index.php/Index/edit.html" >
+                <div style="width:100%;margin: 10px auto;background-color: white;">
+<!--                     <a class="button" id="btnSubmit2" >
                         登录
-                    </a>
+                    </a> -->
+                    <input style="background-color: white;" class="btn btn-lg btn-primary btn-block" id="btnSubmit2" type="button" value="登录"/>
                 </div>
                 
             </div>
@@ -89,4 +91,32 @@
 
 </div>
 </body>
+<script type="text/javascript">
+
+
+    </script>
+    <script type="text/javascript">
+    $("#btnSubmit2").click(function(){
+        $("#btnSubmit2").addClass("disabled");
+        $("#btnSubmit2").val("正在登录……");
+        var name = $("#name").val();
+        var tel = $("#tel").val();
+        var xh = $("#xh").val(); 
+        $.post("{:U('Index/loginV')}",{"name":name,"tel":tel,"xh":xh},function(back){
+            if (back.status == 0) {
+                $("#btnSubmit2").val("正在跳转……");
+                window.location.href="{:U('Index/edit')}";
+            }else if(back.status == 1){
+                $("#btnSubmit2").removeClass("disabled");
+                $("#btnSubmit2").val("信息错误，请重试！");
+                $("#form").addClass("has-error has-feedback");
+            }else{
+                $("#btnSubmit2").removeClass("disabled");
+                $("#btnSubmit2").val("未知错误，请稍后重试");
+                $("#form").addClass("has-error has-feedback");
+            };
+        });
+    });
+
+    </script>
 </html>
