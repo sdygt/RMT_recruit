@@ -103,9 +103,31 @@ class IndexAction extends Action {
         }
         else
         {
-            session('loggeduser',I('POST.name'));
+            session('loggeduser',I('POST.xh'));
             $this->ajaxReturn(array('status' => 0));//success
         }
+    }
+    public function edit()
+    {
+        if ($_SESSION['loggeduser']!=$_GET['xh']) 
+        {
+            $this->error('请先登录！',U('Index/login'));
+        }
+        $members = M('freshman'); 
+        $xh = $_GET['xh'];
+        $map['xh'] = $xh;
+        $member = $members->where($map)->find();
+        $xh = $members->xh;$this->assign('xh',$xh);
+        $name = $members->name;$this->assign('name',$name);
+
+        $tel = $members->tel;$this->assign('tel',$tel);
+        $qq = $members->qq;$this->assign('qq',$qq);
+        $email = $members->email;$this->assign('email',$email);
+
+        $department = $members->department;$this->assign('department',$department);
+
+        $this->show();
+
     }
 }
 

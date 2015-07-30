@@ -105,7 +105,7 @@
         $.post("{:U('Index/loginV')}",{"name":name,"tel":tel,"xh":xh},function(back){
             if (back.status == 0) {
                 $("#btnSubmit2").val("正在跳转……");
-                window.location.href="{:U('Index/edit')}";
+                window.location.href='../Index/edit?xh='+xh;
             }else if(back.status == 1){
                 $("#btnSubmit2").removeClass("disabled");
                 $("#btnSubmit2").val("信息错误，请重试！");
