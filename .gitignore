@@ -3,3 +3,4 @@ admin/APP/Conf/config.php
 Index/Runtime/
 Index/Conf/config.php
 *.log
+rmt_recurit.sql

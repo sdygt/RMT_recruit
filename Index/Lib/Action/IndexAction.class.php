@@ -87,7 +87,7 @@ class IndexAction extends Action {
             return ;
         }
         $db->add($_POST);
-        $this->ajaxReturn(array('errno'=>0,'errmsg'=>'success','sql'=>$db->getLastSql()));  //调试用，输出实际执行的SQL
+        $this->ajaxReturn(array('errno'=>0,'errmsg'=>'success'));  //调试用，输出实际执行的SQL
     }
     public function loginV(){
 
@@ -177,7 +177,7 @@ class IndexAction extends Action {
             $this->ajaxReturn(array('errno'=>2));
         }
         else{
-        $this->ajaxReturn(array('errno'=>0,'errmsg'=>'success','sql'=>$db->getLastSql())); } //调试用，输出实际执行的SQL
+        $this->ajaxReturn(array('errno'=>0,'errmsg'=>'success')); } //调试用，输出实际执行的SQL
     }
 }
 
