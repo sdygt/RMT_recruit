@@ -8,7 +8,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
 	<meta name="msapplication-tap-highlight" content="no">
-	<title>报名表填写 -  南京邮电大学融媒体中心招新</title>
+	<title>报名表修改 -  南京邮电大学融媒体中心招新</title>
 </head>
 <body>
 	
@@ -22,7 +22,7 @@
                        <a href="__ROOT__/index.php" onclick="javascript:return confirm('是否要放弃所填内容返回?');">首页</a>
                     </div>
                     <div class="span-title flex-box-1">
-                        报名系统
+                        报名修改
                     </div>
                     <div class="span-detail flex-box-1" onclick="">
                         <a href="__ROOT__/index.php/Index/zx.html" onclick="javascript:return confirm('是否要放弃所填内容?');">注册</a>
@@ -51,7 +51,7 @@
                         手机号：
                     </div>
                     <div class="control">
-                        <input type="text" class="small" value="{$tel}" name="name" datatype="ming"  />
+                        <input type="text" class="small" value="{$tel}" name="tel" datatype="ming"  />
                     </div>
                 </div>
                 <div class="object">
@@ -59,7 +59,7 @@
                         QQ号：
                     </div>
                     <div class="control">
-                        <input type="text" class="small" value="{$qq}" name="name" datatype="ming"  />
+                        <input type="text" class="small" value="{$qq}" name="qq" datatype="ming"  />
                     </div>
                 </div>
                 <div class="object">
@@ -67,7 +67,7 @@
                         邮箱：
                     </div>
                     <div class="control">
-                        <input type="text" class="small" value="{$email}" name="name" datatype="ming"  />
+                        <input type="text" class="small" value="{$email}" name="email" datatype="ming"  />
                     </div>
                 </div>
                
@@ -76,7 +76,7 @@
                         部门选择：
                     </div>
                     <div class="control">
-                        <select name="department1"  datatype="*"  id="department1">
+                        <select name="department"  datatype="*"  id="department1">
                                 <option value="">请选择..</option>
                                 <option value="办公室">办公室</option>
                                 <option value="新闻部">新闻部</option>
@@ -106,7 +106,12 @@
     $(document).ready(function(){
   $('#department1').val('{$department}');
    });
- 
+    var path = "{:U('Index/editEntry')}";
+    $(document).ready(function() {
+        $("#btnSubmit").click(function() {
+            verify_and_edit(path);
+        });
+    });
 	</script>
     
 

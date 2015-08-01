@@ -198,11 +198,11 @@ function verify_and_submit(path) { //验证表单并ajax提交
             alert(errtxt.xh.error);
             return;
         };
-        if (!/^[1][3578][\d]{9}/.test(tel)) {
+        if (!/^1[3|4|5|7|8]\d{9}$/.test(tel)) {
             alert(errtxt.tel.error);
             return;
         };
-        if (!/^[1-9][0-9]{4,}/.test(qq)) {
+        if (!/^\d{5,11}$/.test(qq)) {
             alert(errtxt.qq.error);
             return;
         };
@@ -244,6 +244,138 @@ function verify_and_submit(path) { //验证表单并ajax提交
                     case -1:
                         alert('数据字段验证错误，请检查输入格式');
                         break;
+                    default:
+                        alert('未知错误，请稍后重试或联系我们。');
+                        break;
+                }
+            });
+    };
+
+}
+function verify_and_edit(path) { //验证表单并ajax提交
+    { //取值
+        var name = $("[name='name']").val();
+        var xh = $("[name='xh']").val();
+        var tel = $("[name='tel']").val();
+        var qq = $("[name='qq']").val();
+        var email = $("[name='email']").val();
+        var department = $("[name='department']").val();
+
+    }
+    var errtxt = { //具体的文案再说吧www
+        name: {
+            empty: "姓名不能空",
+            error: "姓名格式错"
+        },
+        xh: {
+            empty: "学号不能空",
+            error: "学号格式错"
+        },
+        tel: {
+            empty: "tel不能空",
+            error: "tel格式错"
+        },
+        qq: {
+            empty: "qq不能空",
+            error: "qq格式错"
+        },
+        email: {
+            empty: "email不能空",
+            error: "email格式错"
+        },
+        department: {
+            empty: "部门选择不能为空"
+        }
+    };
+
+
+    var valid = true;
+
+
+    { // 判断各字段是否为空，若空则在placeholder输出提示。但是生日学院和部门因为是下拉框没有placeholder要特别处理。
+        if (name == "") {
+            $("[name='name']").attr('placeholder', errtxt.name.empty);
+            valid = false;
+        }
+        if (xh == "") {
+            $("[name='xh']").attr('placeholder', errtxt.xh.empty);
+            valid = false;
+        }
+        if (tel == "") {
+            $("[name='tel']").attr('placeholder', errtxt.tel.empty);
+            valid = false;
+        }
+        if (qq == "") {
+            $("[name='qq']").attr('placeholder', errtxt.qq.empty);
+            valid = false;
+        }
+        if (email == "") {
+            $("[name='email']").attr('placeholder', errtxt.email.empty);
+            valid = false;
+        }
+        if (department == "") {
+            alert(errtxt.department.empty);
+            return;
+        };
+
+        if (valid == false) {
+            alert("有部分字段为空，请检查后重试");
+            return;
+        };
+    }
+    { //下面判断各字段格式是否正确
+        //关于各月份天数和闰年的附加判断
+        
+        if (!/[\u4E00-\u9FA5]{2,5}(?:·[\u4E00-\u9FA5]{2,5})*/.test(name)) {
+            alert(errtxt.name.error);
+            return;
+        };
+        if (!/^[BHYQ][\d]{8}$/i.test(xh)) {
+            alert(errtxt.xh.error);
+            return;
+        };
+        if (!/^1[3|4|5|7|8]\d{9}$/.test(tel)) {
+            alert(errtxt.tel.error);
+            return;
+        };
+        if (!/^\d{5,11}$/.test(qq)) {
+            alert(errtxt.qq.error);
+            return;
+        };
+        if (!/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/.test(email)) {
+            alert(errtxt.email.error);
+            return;
+        };
+    }
+    
+    //下面开始ajax请求
+    if (valid == true) {
+        $.post(path, {
+                "name": name,
+                "xh": xh,
+                "tel": tel,
+                "qq": qq,
+                "email": email,
+                "department": department
+
+            },
+            function(result) {
+                console.log(result);
+                switch (result.errno)
+                {
+                    case 0:
+                        alert('提交成功！');
+                        window.location.href="../../";
+                        break;
+                    case 1:
+                        alert('此学号不存在，请先注册！');
+                        break;
+                    case -1:
+                        alert('数据字段验证错误，请检查输入格式');
+                        break;
+                    case 2:
+                        alert('未进行任何修改！');
+                        break;    
                     default:
                         alert('未知错误，请稍后重试或联系我们。');
                         break;

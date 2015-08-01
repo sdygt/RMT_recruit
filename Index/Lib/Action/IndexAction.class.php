@@ -34,11 +34,11 @@ class IndexAction extends Action {
             $this->ajaxReturn(array('errno'=>-1,'errmsg'=>'bad_birthday'));
             return ;
         }
-        if (! preg_match('/^[1][3578][\d]{9}+/i', $_POST['tel'])) {
+        if (! preg_match('/1[34578]{1}\d{9}$/', $_POST['tel'])) {
             $this->ajaxReturn(array('errno'=>-1,'errmsg'=>'bad_tel'));
             return ;
         }
-        if (! preg_match('/^[\d]{6,11}/i', $_POST['qq'])) {
+        if (! preg_match('/^[1-9][0-9]{4,10}$/', $_POST['qq'])) {
             $this->ajaxReturn(array('errno'=>-1,'errmsg'=>'bad_qq'));
             return ;
         }
@@ -128,6 +128,56 @@ class IndexAction extends Action {
 
         $this->show();
 
+    }
+    public function editEntry() //handle ajax.post request
+    {
+        if (!IS_AJAX) {
+            echo "非法操作";
+            die();
+        }
+        $_POST = I('post.'); //过滤输入
+        $db = M('freshman');
+
+        //验证数据合法
+        if (!($_POST['name'])) {
+            $this->ajaxReturn(array('errno'=>-1,'errmsg'=>'bad_name'));
+            return ;
+        }
+
+        if (!preg_match('/^[BHYQ][\d]{8}$/i', $_POST['xh'])) {
+            $this->ajaxReturn(array('errno'=>-1,'errmsg'=>'bad_xh'));
+            return ;
+        }
+        if (! preg_match('/1[34578]{1}\d{9}$/', $_POST['tel'])) {
+            $this->ajaxReturn(array('errno'=>-1,'errmsg'=>'bad_tel'));
+            return ;
+        }
+        if (! preg_match('/^[1-9][0-9]{4,10}$/', $_POST['qq'])) {
+            $this->ajaxReturn(array('errno'=>-1,'errmsg'=>'bad_qq'));
+            return ;
+        }
+        if (! preg_match('/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/', $_POST['email'])) {
+            $this->ajaxReturn(array('errno'=>-1,'errmsg'=>'bad_email'));
+            return ;
+        }
+        
+        if (! ($_POST['department'])) {
+            $this->ajaxReturn(array('errno'=>-1,'errmsg'=>'bad_department'));
+            return ;
+        }
+        $cond['xh'] = $_POST['xh'];
+        $result = $db->where($cond)->select();
+        if (!$result) {
+            $this->ajaxReturn(array('errno'=>1,'errmsg'=>'xh_exist'));
+            return ;
+        }
+        $map['xh']=$cond['xh'];
+        $edit =$db ->where($map)->save($_POST);
+        if(!$edit){
+            $this->ajaxReturn(array('errno'=>2));
+        }
+        else{
+        $this->ajaxReturn(array('errno'=>0,'errmsg'=>'success','sql'=>$db->getLastSql())); } //调试用，输出实际执行的SQL
     }
 }
 
