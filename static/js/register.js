@@ -231,12 +231,11 @@ function verify_and_submit(path) { //验证表单并ajax提交
                 "reason": reason
             },
             function(result) {
-                console.log(result);
                 switch (result.errno)
                 {
                     case 0:
                         alert('提交成功！');
-                        window.location.href="../../";
+                        window.location.href='../../index.php';
                         break;
                     case 1:
                         alert('此学号已提交过申请，若需修改请前往首页>登录修改信息');
@@ -360,12 +359,11 @@ function verify_and_edit(path) { //验证表单并ajax提交
 
             },
             function(result) {
-                console.log(result);
                 switch (result.errno)
                 {
                     case 0:
                         alert('提交成功！');
-                        window.location.href="../../";
+                        window.location.href='../../index.php';
                         break;
                     case 1:
                         alert('此学号不存在，请先注册！');
